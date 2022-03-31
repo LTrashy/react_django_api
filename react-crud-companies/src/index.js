@@ -1,15 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import reportWebVitals from "./reportWebVitals";
+import {BrowserRouter, Routes, Route} from "react-router-dom"
 
 //components
+import NavBar from "./components/Navbar/navBar";
 import CompanyList from "./components/Company/companyList";
+import CompanyForm from "./components/Company/companyForm";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-import './index.css';
+import "./index.css";
 
-
-
-ReactDOM.render(<CompanyList />, document.getElementById("root"));
+ReactDOM.render(
+  <BrowserRouter>
+    <NavBar />
+    <div className="container my-4">
+        <Routes>
+            <Route path="/" element={<CompanyList />} />
+            <Route path="/companyForm" element={<CompanyForm />} />
+        </Routes>
+    </div>
+  </BrowserRouter>,
+  document.getElementById("root")
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
