@@ -15,10 +15,11 @@ ReactDOM.render(
   <BrowserRouter>
     <NavBar />
     <div className="container my-4">
-        <Routes>
-            <Route path="/" element={<CompanyList />} />
-            <Route path="/companyForm" element={<CompanyForm />} />
-        </Routes>
+      <Routes>
+        <Route exact path="/" element={<CompanyList />} />
+        <Route path="/companyForm" element={<CompanyForm />} />
+        <Route path="/updateCompany/:id" element={<CompanyForm />} />
+      </Routes>
     </div>
   </BrowserRouter>,
   document.getElementById("root")
