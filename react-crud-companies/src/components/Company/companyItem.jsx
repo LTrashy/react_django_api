@@ -13,26 +13,21 @@ const CompanyItem = ({ company, listCompanies }) => {
   return (
     <div className="col-md-4 mb-4">
       <div className="card card-body">
-        <h3 className="card-title">
+        <h3 className="card-title text-center">
           {company.name}
-          <button
-            onClick={() => navigate(`/updateCompany/${company.id}`)}
-            className="btn btn-secondary btn-sm mx-2"
-          >
-            Update
-          </button>
         </h3>
         <p className="card-text">
-          Founded: <strong>{company.foundation}</strong>
+          Nit: <strong>{company.nit}</strong><br></br>
+          Direccion: <strong>{company.direccion}</strong><br></br>
+          Telefono: <strong>{company.telefono}</strong><br></br>
         </p>
-        <a
-          href={company.website}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-primary"
-        >
-          Go to website
-        </a>
+        
+        <button
+            onClick={() => navigate(`/updateCompany/${company.id}`)}
+            className="btn btn-primary"
+          >
+            Update
+        </button>
         <button
           className="btn btn-danger my-2"
           onClick={() => company.id && handleDelete(company.id)}

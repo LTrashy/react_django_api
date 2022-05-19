@@ -4,5 +4,6 @@ from django.db import models
 
 class Company(models.Model):
     name=models.CharField(max_length=50)
-    website=models.URLField(max_length=100)
-    foundation=models.PositiveIntegerField()
+    direccion=models.CharField(max_length=100, default="")
+    nit=models.PositiveBigIntegerField(default=0)
+    telefono=models.PositiveBigIntegerField(default=0)

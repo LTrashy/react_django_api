@@ -31,10 +31,8 @@ class CompanyView(View):
             return JsonResponse(datos)
 
     def post(self,resquest):
-        # print(resquest.body)
         jd = json.loads(resquest.body)
-        # print(jd)
-        Company.objects.create(name = jd['name'], website = jd['website'], foundation = jd['foundation'])
+        Company.objects.create(name = jd['name'], direccion = jd['direccion'], nit = jd['nit'], telefono = jd['telefono'])
         datos={'message':'Success'}
         return JsonResponse(datos)
 
@@ -45,8 +43,9 @@ class CompanyView(View):
         if len(companies)>0:
             company = Company.objects.get(id=id)
             company.name=jd['name']
-            company.website=jd['website']
-            company.foundation=jd['foundation']
+            company.direccion=jd['direccion']
+            company.nit=jd['nit']
+            company.telefono=jd['telefono']
             company.save()
             datos={'message':'Success'}
         else:

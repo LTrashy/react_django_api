@@ -15,8 +15,9 @@ export const registerCompany= async (newCompany)=>{
         },
         body:JSON.stringify({
             "name":String(newCompany.name).trim(),
-            "foundation":parseInt(newCompany.foundation),
-            "website":String(newCompany.website).trim(),
+            "direccion":String(newCompany.direccion).trim(),
+            "nit":parseInt(newCompany.nit),
+            "telefono":parseInt(newCompany.telefono),
         }),
     });
 };
@@ -29,8 +30,9 @@ export const updateCompany= async (companyId, updatedCompany)=>{
       },
       body: JSON.stringify({
         name: String(updatedCompany.name).trim(),
-        foundation: parseInt(updatedCompany.foundation),
-        website: String(updatedCompany.website).trim(),
+        direccion: String(updatedCompany.direccion).trim(),
+        nit: parseInt(updatedCompany.nit),
+        telefono: parseInt(updatedCompany.telefono),
       }),
     });
 };

@@ -7,18 +7,15 @@ const CompanyForm = () => {
   const history = useNavigate();
   const params = useParams();
 
-  const initialState = { id: 0, name: "", foundation: 1950, website: "" };
+  const initialState = { id: 0, name: "", direccion: "", nit: "", telefono:"" };
   const [company, setCompany] = useState(initialState);
 
   const handleInputChange = (e) => {
-    // console.log(e.target.name);
-    // console.log(e.target.value);
     setCompany({ ...company, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(company);
     try {
       let res;
       if (!params.id) {
@@ -41,8 +38,8 @@ const CompanyForm = () => {
     try {
       const res = await CompanyServer.getCompany(companyId);
       const data = await res.json();
-      const { name, foundation, website } = data.company;
-      setCompany({ name, foundation, website });
+      const { name, direccion, nit, telefono} = data.company;
+      setCompany({ name, direccion, nit, telefono });
     } catch (error) {
       console.log(error);
     }
@@ -64,33 +61,45 @@ const CompanyForm = () => {
             autoComplete="off"
             type="text"
             className="form-control"
-            placeholder="name"
+            placeholder="Name"
             value={company.name}
             onChange={handleInputChange}
           />
           <label>Name</label>
         </div>
         <div className="form-floating mb-3">
-          <input
-            type="number"
+        <input
+            name="direccion"
+            autoComplete="off"
+            type="text"
             className="form-control"
-            name="foundation"
-            placeholder="foundation"
-            value={company.foundation}
+            placeholder="Direccion"
+            value={company.direccion}
             onChange={handleInputChange}
           />
-          <label>Foundation</label>
+          <label>Direccion</label>
         </div>
         <div className="form-floating mb-3">
           <input
-            type="text"
+            type="number"
             className="form-control"
-            name="website"
-            placeholder="website"
-            value={company.website}
+            name="nit"
+            placeholder="Nit"
+            value={company.nit}
             onChange={handleInputChange}
           />
-          <label>Website</label>
+          <label>Nit</label>
+        </div>
+        <div className="form-floating mb-3">
+          <input
+            type="number"
+            className="form-control"
+            name="telefono"
+            placeholder="Telefono"
+            value={company.telefono}
+            onChange={handleInputChange}
+          />
+          <label>Telefono</label>
         </div>
         <div className="d-grid gap-2">
           {params.id ? (
