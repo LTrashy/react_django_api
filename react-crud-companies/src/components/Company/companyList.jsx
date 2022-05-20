@@ -20,12 +20,17 @@ const CompanyList = () => {
   useEffect(() => {
     listCompanies();
   }, []);
-
+  console.log(companies);
   return (
     <div className="row">
-      {companies.map((company) => (
-        <CompanyItem key={company.id} company={company} listCompanies={listCompanies}/>
-      ))}
+      {
+      companies?
+        companies.map((company) => (
+          <CompanyItem key={company.id} company={company} listCompanies={listCompanies}/>
+        ))
+      :
+        <p>No hay Compañias registradas</p>
+      }
     </div>
   );
 };
