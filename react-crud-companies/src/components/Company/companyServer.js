@@ -1,4 +1,5 @@
-const API_URL = "http://localhost:8000/api/companies/";
+// const API_URL = "http://localhost:8000/api/companies/";
+const API_URL = "https://companies-test.herokuapp.com/api/companies/";
 
 export const listCompanies= async ()=>{
     return await fetch(API_URL);

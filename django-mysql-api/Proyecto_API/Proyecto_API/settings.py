@@ -55,9 +55,12 @@ MIDDLEWARE = [
 
 ]
 
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000',
-)
+JWT_SECRET_KEY=os.environ.get('JW_SECRET_KEY')
+CORS_ORIGIN_ALLOW_ALL=True
+CORS_ALLOW_CREDENTIALS=True 
+# CORS_ORIGIN_WHITELIST = (
+#     'http://localhost:3000',
+# )
 
 ROOT_URLCONF = 'Proyecto_API.urls'
 
@@ -143,3 +146,7 @@ STATICFILES_DIRS=(
 )
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Configure Django App for Heroku.
+# import django_heroku
+# django_heroku.settings(locals())
