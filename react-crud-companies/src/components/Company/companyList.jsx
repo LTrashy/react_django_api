@@ -22,15 +22,17 @@ const CompanyList = () => {
   }, []);
   console.log(companies);
   return (
-    <div className="row">
-      {
-      companies?
-        companies.map((company) => (
-          <CompanyItem key={company.id} company={company} listCompanies={listCompanies}/>
-        ))
-      :
-        <p>No hay Compañias registradas</p>
-      }
+    <div>
+      <div className="row">
+        {
+          companies?
+          companies.map((company) => (
+            <CompanyItem key={company.id} company={company} listCompanies={listCompanies}/>
+            ))
+            :
+            <p>No hay Compañias registradas</p>
+          }
+      </div>
     </div>
   );
 };

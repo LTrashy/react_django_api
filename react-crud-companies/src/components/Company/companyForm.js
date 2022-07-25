@@ -7,7 +7,13 @@ const CompanyForm = () => {
   const history = useNavigate();
   const params = useParams();
 
-  const initialState = { id: 0, name: "", direccion: "", nit: "", telefono:"" };
+  const initialState = {
+    id: 0,
+    name: "",
+    direccion: "",
+    nit: "",
+    telefono: "",
+  };
   const [company, setCompany] = useState(initialState);
 
   const handleInputChange = (e) => {
@@ -38,7 +44,7 @@ const CompanyForm = () => {
     try {
       const res = await CompanyServer.getCompany(companyId);
       const data = await res.json();
-      const { name, direccion, nit, telefono} = data.company;
+      const { name, direccion, nit, telefono } = data.company;
       setCompany({ name, direccion, nit, telefono });
     } catch (error) {
       console.log(error);
@@ -68,7 +74,7 @@ const CompanyForm = () => {
           <label>Name</label>
         </div>
         <div className="form-floating mb-3">
-        <input
+          <input
             name="direccion"
             autoComplete="off"
             type="text"

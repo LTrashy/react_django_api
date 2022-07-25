@@ -19,14 +19,19 @@ const navBar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div className="navbar-nav">
-            <Link className="nav-link active" aria-current="page" to="/">
-              Home
-            </Link>
-            <Link className="nav-link" to="/companyForm">
-              Add Company
-            </Link>
-          </div>
+          <ul className="navbar-nav me-auto mb-2 mb-md-0">
+            <li>
+              <Link className="nav-link active" aria-current="page" to="/">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link className="nav-link" to="/companyForm">
+                Add Company
+              </Link>
+            </li>
+          </ul>
+          <a href="https://github.com/LTrashy/react_django_api" className="d-flex btn btn-outline-success">Github</a>
         </div>
       </div>
     </nav>
